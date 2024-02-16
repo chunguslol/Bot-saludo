@@ -1,5 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
   <body>
-    <h1><span style="font-size: larger;"><strong>Hola</strong></span></h1>
+    <h1>Hola</h1>
+    <form id="saludar-form">
+      <label for="Nombre">Cual es tu nombre:</label>
+      <input type="text" id="nombre" />
+      <input type="submit" value="Saludar" id="saludar-button" />
+    </form>
+    <div id="resultado-div"></div>
+    <script type="module" src="./src/presenter.js"></script>
   </body>
 </html>

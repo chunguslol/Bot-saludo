@@ -1,15 +1,19 @@
-import sumar from "./sumador";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
+import saludar from "./saludar";
+
+const nombre_input = document.querySelector("#nombre");
+const form = document.querySelector("#saludar-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  const nombre = nombre_input.value;
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  let saludo = "Hola";
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  if (nombre) {
+    saludo += " " + nombre;
+  }
+
+  div.innerHTML = "<p>" + saludo + "</p>";
 });
