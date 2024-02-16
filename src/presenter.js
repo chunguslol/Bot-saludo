@@ -21,6 +21,7 @@ form.addEventListener("submit", (event) => {
   const hora = new Date();
   hora.setHours(parseInt(horaParts[0], 10));
   hora.setMinutes(parseInt(horaParts[1], 10));
+  const idioma = idioma_select.value;
 
   let saludo = "Hola";
 
@@ -44,6 +45,23 @@ form.addEventListener("submit", (event) => {
     saludo += ", Buenas tardes";
   } else {
     saludo += ", Buenas noches";
+  }
+
+  if (idioma === "en") {
+    if (genero === "femenino" && edad > 30) {
+      saludo = "Hello Mrs " + nombre;
+    } else if (edad > 30) {
+      saludo = "Hello Mr " + nombre;
+    } else {
+      saludo = "Hello Young " + nombre;
+    }
+    if (hora.getHours() < 12) {
+      saludo += ", Good morning";
+    } else if (hora.getHours() < 18) {
+      saludo += ", Good afternoon";
+    } else {
+      saludo += ", Good evening";
+    }
   }
 
   div.innerHTML = "<p>" + saludo + "</p>";
